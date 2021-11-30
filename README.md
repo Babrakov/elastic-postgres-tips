@@ -3,7 +3,7 @@
 
 ## Перенос данных postgre и elastic между серверами
 
-### на машине, где уже все есть в postgre и elastic
+### На машине, где уже все есть в postgre и elastic:
 1. Делаем бэкап
 ```
 pg_dump -U taskuser taskdb > backup.sql
@@ -21,7 +21,7 @@ elasticdump --input=http://127.0.0.1:9200/content --output=es_mapping.json --typ
 elasticdump --input=http://127.0.0.1:9200/content --output=es_index.json --type=data
 ```
 
-### на машине, на которую все нужно перенести
+### На машине, на которую все нужно перенести:
 1. Удаляем старые данные и настраиваем заново taskdb
 ```
 psql -U postgres -d taskdb -c "DROP SCHEMA public CASCADE;"
