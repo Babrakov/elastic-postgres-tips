@@ -1,4 +1,4 @@
-# Полезности для работы с ElasticSearch
+# Полезности для ElasticSearch и PostgreSQL
 
 
 ## Перенос данных postgre и elastic между серверами
