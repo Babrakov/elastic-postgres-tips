@@ -79,3 +79,27 @@ POST /content/_doc/39653d8d-2191-469a-8d4a-bd4f19b71232/_update
   }
 }
 ```
+3. Удаление по полю
+```
+POST /index_name/_delete_by_query
+{
+    "query": {
+    "multi_match" : {
+      "query":    "search_string",
+      "fields": [ "field_name" ]
+    }
+  }
+}
+```
+Пример:
+```
+POST /content/_delete_by_query
+{
+  "query": {
+    "multi_match" : {
+      "query":    "ShowDocsMdl",
+      "fields": [ "type" ]
+    }
+  }
+}
+```
