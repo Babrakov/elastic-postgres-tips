@@ -103,3 +103,20 @@ POST /content/_delete_by_query
   }
 }
 ```
+3. Поиск по пустому полу (data:{})
+```
+GET /index_name/_search
+{
+  "query":{
+    "bool":{
+      "must_not":[
+        {
+          "exists":{
+            "field":"tags"
+          }
+        }
+      ]
+    }
+  }
+}
+```
