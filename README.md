@@ -103,7 +103,7 @@ POST /content/_delete_by_query
   }
 }
 ```
-3. Поиск по пустому полу (data:{})
+4. Поиск по пустому полю (data:{})
 ```
 GET /index_name/_search
 {
@@ -117,6 +117,46 @@ GET /index_name/_search
         }
       ]
     }
+  }
+}
+```
+5. Поиск с условием И/ИЛИ
+```
+GET /index_name/_search
+{
+  "query" : {
+     "bool": {             //bool indicates we are using boolean operator
+          "must" : [       //must is for **AND**
+               {
+                 "match" : {
+                       "description" : "some text"  
+                   }
+               },
+               {
+                  "match" :{
+                        "type" : "some Type"
+                   }
+               }
+           ]
+      }
+  }
+}
+{
+  "query" : {
+     "bool": {             //bool indicates we are using boolean operator
+          "should" : [       //must is for **OR**
+               {
+                 "match" : {
+                       "description" : "some text"  
+                   }
+               },
+               {
+                  "match" :{
+                        "type" : "some Type"
+                   }
+               }
+           ]
+      }
   }
 }
 ```
