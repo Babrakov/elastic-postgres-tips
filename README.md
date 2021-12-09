@@ -123,6 +123,8 @@ GET /index_name/_search
 5. Поиск с условием И/ИЛИ
 ```
 GET /index_name/_search
+```
+```
 {
   "query" : {
      "bool": {             //bool indicates we are using boolean operator
@@ -141,6 +143,8 @@ GET /index_name/_search
       }
   }
 }
+```
+```
 {
   "query" : {
      "bool": {             //bool indicates we are using boolean operator
